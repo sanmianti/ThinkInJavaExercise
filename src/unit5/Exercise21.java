@@ -38,6 +38,8 @@ public class Exercise21 {
 		
 		new Exercise21(Money.WUYUAN).describe();
 		new Exercise21(Money.YIBAIYUAN).describe();
+		
+		System.out.println(Money.YIMAO.ordinal());
 	}
 
 }
