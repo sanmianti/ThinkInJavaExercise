@@ -1,8 +1,9 @@
 package helloworld;
 
 import test.Cookie;
+import unit7.Exercise15;
 
-public class HelloWorld extends Cookie{
+public class HelloWorld extends Exercise15{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -33,15 +34,21 @@ public class HelloWorld extends Cookie{
 		
 //		Vector vector = new Vector();
 		
-		HelloWorld helloWorld = new HelloWorld();
+//		HelloWorld helloWorld = new HelloWorld();
 //		helloWorld.bite();
 		
+//		A a = new A();
 		
-		
+//		Exercise15 x = new Exercise15();
+//		x.name();
+		HelloWorld helloWorld = new HelloWorld();
+		helloWorld.name();
 		
 	}
 	
-
+	void f(){
+		super.name();
+	}
 
 }
 
