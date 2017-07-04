@@ -1,5 +1,7 @@
 package Test3;
 
+import java.awt.image.renderable.RenderableImage;
+
 public class HorrorShow {
 
 	static void u(Moster b){b.menace();}
@@ -19,8 +21,57 @@ public class HorrorShow {
 		v(vlad);
 		w(vlad);
 		
+		HorrorShow hs = new HorrorShow();
+		hs.getDM().menace();
+		hs.getVampire().destroy();
+		
 	}
-
+	
+	DangerousMonster getDM(){
+		return new DangerousMonster() {
+			
+			@Override
+			public void menace() {
+				// TODO Auto-generated method stub
+				System.out.println("menace()");
+			}
+			
+			@Override
+			public void destroy() {
+				// TODO Auto-generated method stub
+				System.out.println("destroy()");
+			}
+		};
+	}
+	
+	Vampire getVampire(){
+		return new Vampire() {
+			
+			@Override
+			public void kill() {
+				// TODO Auto-generated method stub
+				System.out.println("kill()");
+			}
+			
+			@Override
+			public void menace() {
+				// TODO Auto-generated method stub
+				System.out.println("menace()");
+			}
+			
+			@Override
+			public void destroy() {
+				// TODO Auto-generated method stub
+				System.out.println("destroy()");
+			}
+			
+			@Override
+			public void drinkBlood() {
+				// TODO Auto-generated method stub
+				System.out.println("drinkBlood()");
+			}
+		};
+	}
 }
 interface Moster{
 	void menace();

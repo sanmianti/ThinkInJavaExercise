@@ -10,8 +10,8 @@ public class Exercise19 {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		playGame(new ThrowCoinGameFactory());
-		playGame(new DiceGameFactory());
+		playGame(ThrowCoinsGame.factory);
+		playGame(DiceGame.factory);
 	}
 
 }
@@ -36,6 +36,14 @@ class ThrowCoinsGame implements Gambling{
 			break;
 		}
 	}
+	public static GamblingFactory factory = new GamblingFactory() {
+		
+		@Override
+		public Gambling getGambling() {
+			// TODO Auto-generated method stub
+			return new ThrowCoinsGame();
+		}
+	};
 }
 class DiceGame implements Gambling{
 	@Override
@@ -44,21 +52,27 @@ class DiceGame implements Gambling{
 		int i = new Random().nextInt(6);
 		System.out.println((i + 1) + "点");
 	}
+	
+	public static GamblingFactory factory = new GamblingFactory(){
+		public Gambling getGambling() {
+			return new DiceGame();
+		};
+	};
 }
 interface GamblingFactory{
 	Gambling getGambling();
 }
-class ThrowCoinGameFactory implements GamblingFactory{
-	@Override
-	public Gambling getGambling() {
-		// TODO Auto-generated method stub
-		return new ThrowCoinsGame();
-	}
-}
-class DiceGameFactory implements GamblingFactory{
-	@Override
-	public Gambling getGambling() {
-		// TODO Auto-generated method stub
-		return new DiceGame();
-	}
-}
+//class ThrowCoinGameFactory implements GamblingFactory{
+//	@Override
+//	public Gambling getGambling() {
+//		// TODO Auto-generated method stub
+//		return new ThrowCoinsGame();
+//	}
+//}
+//class DiceGameFactory implements GamblingFactory{
+//	@Override
+//	public Gambling getGambling() {
+//		// TODO Auto-generated method stub
+//		return new DiceGame();
+//	}
+//}
