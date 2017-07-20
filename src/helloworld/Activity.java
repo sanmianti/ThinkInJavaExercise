@@ -21,7 +21,6 @@ public class Activity  {
 			// TODO Auto-generated method stub
 			studentList = data;
 		}
-
 		
 	}
 	

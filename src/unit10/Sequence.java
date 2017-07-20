@@ -1,17 +1,20 @@
 package unit10;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+
 public class Sequence {
 
-	private Object[] items;
+	private List<Object> items = new ArrayList<>();
 	private int next = 0;
 	public Sequence(int size) {
 		// TODO Auto-generated constructor stub
-		items = new Object[size];
+		items = new ArrayList<>();
 	}
 	public void add(Object x){
-		if (next < items.length) {
-			items[next++] = x;
-		}
+		items.add(x);
 	}
 	
 	private class SequenceSelector implements Selector{
@@ -19,17 +22,17 @@ public class Sequence {
 		@Override
 		public boolean end() {
 			// TODO Auto-generated method stub
-			return i == items.length;
+			return i == items.size();
 		}
 		@Override
 		public Object current() {
 			// TODO Auto-generated method stub
-			return items[i];
+			return items.get(i);
 		}
 		@Override
 		public void next() {
 			// TODO Auto-generated method stub
-			if (i < items.length) {
+			if (i < items.size()) {
 				i++;
 			}
 		}
@@ -38,8 +41,9 @@ public class Sequence {
 		}
 	}
 	private class ReverseSelector implements Selector{
+
 		
-		private int i = items.length ;
+		private int i = items.size() ;
 		
 		@Override
 		public boolean end() {
@@ -50,7 +54,8 @@ public class Sequence {
 		@Override
 		public Object current() {
 			// TODO Auto-generated method stub
-			return items[i-1];
+//			return items[i-1];
+			return items.get(i - 1);
 		}
 
 		@Override
@@ -63,6 +68,32 @@ public class Sequence {
 		}
 		
 	}
+	private class SequenceIterator implements Iterator<Object>{
+
+		private int i;
+		
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return i < items.size();
+		}
+
+		@Override
+		public Object next() {
+			// TODO Auto-generated method stub
+			if (hasNext()) {
+				return items.get(i);
+			}
+			throw new NoSuchElementException();
+		}
+		
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			throw new UnsupportedOperationException();
+		}
+	}
+	
 	public Selector selector(){
 		return new SequenceSelector();
 	}
@@ -89,11 +120,9 @@ public class Sequence {
 		while (! reverseSelector.end()) {
 			System.out.println(reverseSelector.current());
 			reverseSelector.next();
-			
-			
 		}
 		
-		Sequence sequence2 = sequence.new SequenceSelector().outer();
+		
 	}
 
 }
