@@ -12,10 +12,10 @@ public class Exercise21 {
 	public void describe(){
 		switch (moneyType) {
 		case YIMAO:
-			System.out.println("一毛");
+			System.out.println("�?�?");
 			break;
 		case YIYUAN:
-			System.out.println("一元");
+			System.out.println("�?�?");
 			break;
 		case WUYUAN:
 			System.out.println("五元");
@@ -24,7 +24,7 @@ public class Exercise21 {
 			System.out.println("十元");
 			break;
 		case YIBAIYUAN:
-			System.out.println("一百元");
+			System.out.println("�?百元");
 			break;
 		default:
 			break;

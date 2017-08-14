@@ -11,6 +11,8 @@ public class Sequence {
 	public void add(Object x){
 		if (next < items.length) {
 			items[next++] = x;
+		}else {
+			throw new IndexOutOfBoundsException();
 		}
 	}
 	
