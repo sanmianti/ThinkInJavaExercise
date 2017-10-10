@@ -1,5 +1,6 @@
 package helloworld;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,17 +20,12 @@ public class HelloWorld {
 	
 	
 	public static void main(String[] args){
-		try {
-			throw new RuntimeException();
-		} catch (RuntimeException e) {
-			// TODO: handle exception
-			
-		}finally {
-			System.out.println("finally block");
-		}
+
+		File file = new File("zhangsan");
+		
+		
 	}
 	
 	
 }
 
-class MyException extends Exception{}
