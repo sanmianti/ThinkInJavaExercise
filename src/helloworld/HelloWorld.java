@@ -21,11 +21,15 @@ public class HelloWorld {
 	
 	public static void main(String[] args){
 
-		File file = new File("zhangsan");
-		
-		
+
+		HelloWorld hw = new HelloWorld();
+		int i = 3;
+		hw.test1(i);
 	}
 	
+	private void test1(int i){
+		
+	}
 	
 }
 
